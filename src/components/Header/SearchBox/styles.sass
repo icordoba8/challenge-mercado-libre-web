@@ -1,0 +1,39 @@
+@use "sass:map"
+@import "../../../App.sass"
+.search-container 
+    overflow: auto
+    position: relative
+    background-color: map.get($theme-colors, "white")
+    max-width: 94%
+    min-width: 200px
+    display: grid
+    grid-template-columns: calc(100% - 46px)  46px
+    grid-template-rows: 1fr 
+    gap: 0px 0px
+    left: 30px
+    
+.search-box
+    padding: 7px 60px 9px 15px
+    -webkit-border-radius: 2px
+    border-radius: 2px
+    background-color: map.get($theme-colors, "white")
+    border: 0 
+    height: 22px
+    outline: none
+    position: relative
+   
+
+.search-button
+    border:0
+    border-left: 1px solid #e6e6e6
+    background-color: map.get($theme-colors, "gray")
+
+.search-image
+    width: 20px
+
+    
+
+
+
+    
+
