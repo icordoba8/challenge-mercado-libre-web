@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.sass";
 import ic_shipping from "../../../assets/ic_shipping.png";
 import { Link } from "react-router-dom";
+import amountFormat from "../../../libs/amountFormat";
 const Item = (props: any) => {
   const { id, title, picture, price, free_shipping } = props.item;
   return (
@@ -14,7 +15,7 @@ const Item = (props: any) => {
           <div className="info">
             <span>
               <span className="price">
-                {"$"} {price.amount}{" "}
+                {"$"} {amountFormat(price.amount)}
               </span>
 
               {free_shipping ? (

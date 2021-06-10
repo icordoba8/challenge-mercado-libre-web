@@ -1,0 +1,40 @@
+@use "sass:map"
+@import "../../../App.sass"
+.image-buy
+   display: grid
+   grid-template-columns: 70% 30%
+   grid-template-rows: 1fr 
+   gap: 0px 0px
+   height: 100%
+   padding: 20px
+.picture
+   left: 50px
+   min-height: 400px
+   width: 500px
+.description
+   padding: 10px
+   text-align: left
+  
+.description h2
+   font-size: 28px
+   font-weight: normal
+   color: map.get($theme-colors, "bronw")
+.description p
+   font-size: 16px
+   font-weight:  400
+   color: map.get($theme-colors, "light-grey")
+
+.info-buy
+   text-align: left
+.condition
+   font-size: 14px
+   
+.title
+   font-size: 20px
+   font-weight: normal
+   
+.price
+   margin-top: 0
+   font-size: 32px 
+   font-weight: 400
+   

@@ -7,7 +7,6 @@ import "./styles.sass";
 const ListItems = () => {
   const [items, setItems] = useState([]);
   const { search }: any = queryString.parse(useHistory().location.search);
-
   const getItems = useCallback(async () => {
     const { data } = await ItemsService.search(search);
     if (data.error && data.error !== "") {

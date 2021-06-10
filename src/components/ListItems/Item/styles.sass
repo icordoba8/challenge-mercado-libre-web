@@ -3,7 +3,7 @@
     
 
 .item
-    border-bottom: thin solid #eee
+    border-bottom: thin solid map.get($theme-colors, "blue grey")
     display: -webkit-flex
     display: flex
     -webkit-flex-grow: 1 
@@ -17,25 +17,30 @@ li
     grid-template-columns:  140px calc(100% - 140px)
     grid-template-rows: 1fr 
     gap: 0px 0px
-    height: 100px
+    height: auto
     padding: 10px
     width: 100%
-.item-thumbnail
+
+.content-item .item-thumbnail
     text-align: left
-.thumbnail
-    width: 100px
-.info
+
+.content-item .thumbnail
+    width: 130px
+
+.content-item .info
     text-align: left
-.title
+
+.content-item  .title
     font-size: 18px
-.price
+
+.content-item .price
     font-weight: bold
-.ic_shipping
+    font-size: 24px
+
+.content-item .ic_shipping
     position: relative
     top: 3px
-    left: 2px
-.items a
-    text-decoration: none
-    color: map.get($theme-colors, "brown")
+    left: 4px
+
    
 

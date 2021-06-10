@@ -1,3 +1,9 @@
+@use "sass:map"
+@import "../../App.sass"
 .items
     padding: 0
     margin: 0
+
+.items a
+    text-decoration: none
+    color: map.get($theme-colors, "brown")
