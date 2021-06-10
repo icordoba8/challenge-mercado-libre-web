@@ -1,10 +1,8 @@
 import axios from "axios";
 import {api} from '../../package.json';
-
 const search = async (query:any) => {
     try {
-      console.log(`${api}items?search=${query}`)
-        const response = await axios.get(`${api}items?search=${query}`);
+        const response = await axios.get(`${api}items?search=${query}`,{ withCredentials: true });
         return response;
     } catch (err) {
         return {
@@ -16,12 +14,11 @@ const search = async (query:any) => {
     }
 };
 
-const create = async (object:any) => {
-  try {
-        const response = await axios.post(`${api}campaigns/create`, object);
+const detail = async (id:any) => {
+    try {
+        const response = await axios.get(`${api}items/${id}`,{ withCredentials: true });
         return response;
     } catch (err) {
-        console.log("Error server");
         return {
             data: {
                 error: "error",
@@ -30,25 +27,9 @@ const create = async (object:any) => {
         };
     }
 };
-const edit = async (object:any) => {
-  try {
-        const response = await axios.put(`${api}campaigns/edit`, object);
-        return response;
-    } catch (err) {
-        console.log("Error server");
-        return {
-            data: {
-                error: "error",
-                message: "Tiempo de respuesta agotado intente nuevamente",
-            },
-        };
-    }
-};
-
 
 const ItemsService: any = {
     search,
-    create,
-    edit
+    detail
 };
-export {ItemsService };
+export {ItemsService }
