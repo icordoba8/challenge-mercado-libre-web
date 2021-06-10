@@ -6,13 +6,9 @@ import ic_Search from "../../../assets/ic_Search.png";
 const SearchBox = () => {
   const { search }: any = queryString.parse(useHistory().location.search);
   const [state, setState] = useState(search ? search : "");
-  const handleSubmit = (e: any) => {
-    e.preventdefault();
-    console.log(43434);
-    //action={`/items?search= ${state}`} method="GET"
-  };
+
   return (
-    <form>
+    <form action={`/items?search= ${state}`} method="GET">
       <div className="search-container">
         <input
           className="search-box"

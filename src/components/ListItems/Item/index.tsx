@@ -1,23 +1,33 @@
 import React from "react";
 import "./styles.sass";
 import ic_shipping from "../../../assets/ic_shipping.png";
+import { Link } from "react-router-dom";
 const Item = (props: any) => {
-  const { title, picture, price, free_shipping } = props.item;
+  const { id, title, picture, price, free_shipping } = props.item;
   return (
-    <li className="item">
-      <div className="content-item">
-        <div className="item-thumbnail">
-          <img className="thumbnail" src={picture} alt="" />
+    <Link to={`/items/${id}`}>
+      <li className="item">
+        <div className="content-item">
+          <div className="item-thumbnail">
+            <img className="thumbnail" src={picture} alt="" />
+          </div>
+          <div className="info">
+            <span>
+              <span className="price">
+                {"$"} {price.amount}{" "}
+              </span>
+
+              {free_shipping ? (
+                <img className="ic_shipping" src={ic_shipping} alt="" />
+              ) : (
+                ""
+              )}
+            </span>
+            <p className="title">{title}</p>
+          </div>
         </div>
-        <div className="info">
-          <span>
-            {"$"} {price.amount}{" "}
-            {free_shipping ? <img src={ic_shipping} alt="" /> : ""}
-          </span>
-          <p className="title">{title}</p>
-        </div>
-      </div>
-    </li>
+      </li>
+    </Link>
   );
 };
 
