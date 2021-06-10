@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "../Header";
 import Home from "../Home";
 import ListItems from "../ListItems";
+import DetailItem from "../ListItems/DetailItem";
 import "./styles.sass";
 const Layout = () => {
   return (
@@ -11,7 +12,8 @@ const Layout = () => {
       <div className="container">
         <Switch>
           <Route component={Home} exact path="/" />
-          <Route component={ListItems} path="/items/" />
+          <Route component={ListItems} exact path="/items" />
+          <Route component={DetailItem} exact path="/items/:id" />
         </Switch>
       </div>
     </>
