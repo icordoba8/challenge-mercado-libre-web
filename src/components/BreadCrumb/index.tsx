@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as productsActions from "../../redux/actions/productsActions";
+import "./styles.sass";
 const BreadCrumb = (props: any) => {
   const { categories } = props;
   return (
-    <div>
+    <div className="categories">
       {categories.map((item: string, index: number) => (
         <span key={index}>
           <Link to={`/${item}`}>{item}</Link>

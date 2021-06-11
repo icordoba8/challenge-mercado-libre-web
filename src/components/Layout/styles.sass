@@ -1,9 +1,31 @@
-.container
+@use "sass:map"
+@import "../../App.sass"
+
+.main-container
     width: 70%
     margin: auto
+    padding-top: 10px
+    
+.container
     text-align: center
     background-color: #ffffff
     height: auto
     min-height: 0
     margin-top: 20px
     border-radius:5px
+.main-container a
+    text-decoration: none
+    color: map.get($theme-colors, "brown")
+
+@media (min-width: 360px) and (max-width:575.99px) 
+    .main-container
+        width: 100%
+@media (min-width: 576px) and (max-width:767.99px) 
+    .main-container
+        width: 100%
+@media (min-width: 768px) and (max-width:991.98px) 
+    .main-container
+        width: 90%
+@media (min-width: 992px) and (max-width:1199.98px) 
+    .main-container
+        width: 70%

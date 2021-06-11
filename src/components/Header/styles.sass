@@ -5,7 +5,7 @@
    background-color: map.get($theme-colors, "yellow")
    padding: 10px
    display: grid
-   grid-template-columns: 18% 70%
+   grid-template-columns: 18% 69.8%
    grid-template-rows: 1fr 
    gap: 0px 0px
    overflow:hidden
@@ -14,5 +14,7 @@
 .header-logo
    text-align: center
 
-  
+@media (max-width:1024px)
+   .header
+     grid-template-columns: 18% 68%
   
