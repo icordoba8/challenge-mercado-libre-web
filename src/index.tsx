@@ -5,11 +5,22 @@ import "./index.sass";
 import "@fortawesome/fontawesome-free/css/all.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+//Libreria redux a utilizar
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
+//Reduccers a utilizar en el store
+import reducers from "./redux/reducers";
+const store = createStore(
+  reducers, // Reducers
+  {}, // Estado inicial
+  applyMiddleware(reduxThunk)
+);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
 

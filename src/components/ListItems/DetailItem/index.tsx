@@ -1,66 +1,46 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 import "./styles.sass";
 import ItemModel from "../../../models/item";
 import { ItemsService } from "../../../services";
 import BuyButton from "../../BuyButton";
 import amountFormat from "../../../libs/amountFormat";
-const initialState = {
-  autor: {
-    name: "",
-    lastname: "",
-  },
-  id: "",
-  title: "",
-  price: {
-    currency: "",
-    amount: 0,
-    decimals: 0,
-  },
-  picture: "",
-  condition: "",
-  free_shipping: false,
-  sold_quantity: 0,
-  description: "",
-};
-const DetailItem = () => {
-  const { id }: any = useParams();
-  const [item, setItem] = useState<ItemModel>(initialState);
-  const getItem = useCallback(async () => {
-    const { data } = await ItemsService.detail(id);
-    if (data.error && data.error !== "") {
-      return;
-    }
-    setItem(data);
-  }, [id]);
+import * as productsActions from "../../../redux/actions/productsActions";
 
+const DetailItem = (props: any) => {
+  const { id }: any = useParams();
+  const { product, get_product } = props;
   useEffect(() => {
-    getItem();
-  }, [getItem]);
+    get_product(id);
+  }, [get_product, id]);
   return (
     <>
       <div className="image-buy">
         <div>
           <div className="picture">
-            <img src={item.picture} alt="" />
-          </div>
-          <div className="description">
-            <h2>Descripción del producto </h2>
-            <p>{item.description}</p>
+            <img src={product.picture} alt="" />
           </div>
         </div>
         <div className="info-buy">
           <p className="condition">
-            {item.condition} - {item.sold_quantity} vendidos
+            {product.condition} - {product.sold_quantity} vendidos
           </p>
-          <h1 className="title">{item.title} </h1>
-          <p className="price">$ {amountFormat(item.price.amount)}</p>
+          <h1 className="title">{product.title} </h1>
+          <p className="price">$ {amountFormat(product.price.amount)}</p>
           <BuyButton />
         </div>
       </div>
-      <div></div>
+      <div className="description">
+        <h2>Descripción del producto </h2>
+        <p>{product.description}</p>
+      </div>
     </>
   );
 };
-
-export default DetailItem;
+//Mapeamos los estados del reducer
+const mapStateToProps = (reducers: any) => {
+  return reducers.productsReducer;
+};
+//Conectamos el componenete para acceder a las props
+export default connect(mapStateToProps, productsActions)(DetailItem);

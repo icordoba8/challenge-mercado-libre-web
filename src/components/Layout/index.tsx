@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import BreadCrumb from "../BreadCrumb";
 import Header from "../Header";
 import Home from "../Home";
 import ListItems from "../ListItems";
@@ -9,12 +10,15 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <div className="container">
-        <Switch>
-          <Route component={Home} exact path="/" />
-          <Route component={ListItems} exact path="/items" />
-          <Route component={DetailItem} exact path="/items/:id" />
-        </Switch>
+      <div className="main-container">
+        <BreadCrumb />
+        <div className="container">
+          <Switch>
+            <Route component={Home} exact path="/" />
+            <Route component={ListItems} exact path="/items" />
+            <Route component={DetailItem} exact path="/items/:id" />
+          </Switch>
+        </div>
       </div>
     </>
   );

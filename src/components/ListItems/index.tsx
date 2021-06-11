@@ -1,32 +1,30 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import queryString from "query-string";
+import { connect } from "react-redux";
 import Item from "./Item";
+import * as productsActions from "../../redux/actions/productsActions";
 import { ItemsService } from "../../services";
 import "./styles.sass";
-const ListItems = () => {
-  const [items, setItems] = useState([]);
+const ListItems = (props: any) => {
   const { search }: any = queryString.parse(useHistory().location.search);
-  const getItems = useCallback(async () => {
-    const { data } = await ItemsService.search(search);
-    if (data.error && data.error !== "") {
-      return;
-    }
-    setItems(data.items);
-  }, [search]);
-
+  const { get_products, produts, load, error } = props;
   useEffect(() => {
-    getItems();
-  }, [getItems]);
+    get_products(search);
+  }, [get_products]);
   // console.log(useParams());
 
   return (
     <ul className="items">
-      {items.map((item: any, index) => {
+      {produts.map((item: any, index: any) => {
         return <Item key={index} item={item} />;
       })}
     </ul>
   );
 };
-
-export default ListItems;
+//Mapeamos los estados del reducer
+const mapStateToProps = (reducers: any) => {
+  return reducers.productsReducer;
+};
+//Conectamos el componenete para acceder a las props
+export default connect(mapStateToProps, productsActions)(ListItems);
