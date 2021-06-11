@@ -3,19 +3,22 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
+import { BrowserRouter as Router } from "react-router-dom";
 //Reduccers a utilizar en el store
-import reducers from "./redux/reducers";
+import reducers from "../../redux/reducers";
 const store = createStore(
   reducers, // Reducers
   {}, // Estado inicial
   applyMiddleware(reduxThunk)
 );
-import App from "./App";
+import Layout from ".";
 
-test("Render component App", () => {
+test("renders component Layout", () => {
   const { container } = render(
     <Provider store={store}>
-      <App />
+      <Router>
+        <Layout />
+      </Router>
     </Provider>
   );
 });

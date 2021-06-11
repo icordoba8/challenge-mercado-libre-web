@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import "./styles.sass";
-import ItemModel from "../../../models/item";
-import { ItemsService } from "../../../services";
+
 import BuyButton from "../../BuyButton";
 import amountFormat from "../../../libs/amountFormat";
 import * as productsActions from "../../../redux/actions/productsActions";
@@ -14,6 +13,7 @@ const DetailItem = (props: any) => {
   useEffect(() => {
     get_product(id);
   }, [get_product, id]);
+
   return (
     <>
       <div className="image-buy">
@@ -24,7 +24,8 @@ const DetailItem = (props: any) => {
         </div>
         <div className="info-buy">
           <p className="condition">
-            {product.condition} - {product.sold_quantity} vendidos
+            {product.condition === "new" ? "Nuevo" : product.condition} -
+            {product.sold_quantity} vendidos
           </p>
           <h1 className="title">{product.title} </h1>
           <p className="price">$ {amountFormat(product.price.amount)}</p>
@@ -38,6 +39,7 @@ const DetailItem = (props: any) => {
     </>
   );
 };
+
 //Mapeamos los estados del reducer
 const mapStateToProps = (reducers: any) => {
   return reducers.productsReducer;

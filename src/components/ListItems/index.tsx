@@ -1,18 +1,20 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import queryString from "query-string";
 import { connect } from "react-redux";
 import Item from "./Item";
 import * as productsActions from "../../redux/actions/productsActions";
-import { ItemsService } from "../../services";
+
 import "./styles.sass";
 const ListItems = (props: any) => {
   const { search }: any = queryString.parse(useHistory().location.search);
-  const { get_products, produts, load, error } = props;
+  const { get_products, produts, clear_state_product, load, error } = props;
   useEffect(() => {
     get_products(search);
+    return () => {
+      clear_state_product();
+    };
   }, [get_products]);
-  // console.log(useParams());
 
   return (
     <ul className="items">

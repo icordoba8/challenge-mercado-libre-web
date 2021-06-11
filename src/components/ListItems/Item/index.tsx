@@ -15,7 +15,7 @@ const Item = (props: any) => {
           <div className="info">
             <span>
               <span className="price">
-                {"$"} {amountFormat(price.amount)}
+                {"$"} {amountFormat(price?.amount)}
               </span>
 
               {free_shipping ? (

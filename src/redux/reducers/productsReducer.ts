@@ -1,8 +1,9 @@
 import {
-   GET_PRODUCTS,
-   GET_PRODUCT,
-  LOAD,
-  ERROR,
+    GET_PRODUCTS,
+    GET_PRODUCT,
+    CLEAR_STATE,
+    LOAD,
+    ERROR,
 } from "../types/productsTypes";
 //Estado inicial del reducer
 const INITIAL_STATE = {
@@ -48,7 +49,9 @@ const productsReducer = (state = INITIAL_STATE, action: any) => {
         categories: action.payload.categories,
         load: false,
         error: "",
-      };
+          };
+      case CLEAR_STATE:
+      return INITIAL_STATE
 
     case LOAD:
       return { ...state, load: true };

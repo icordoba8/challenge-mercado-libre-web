@@ -1,6 +1,7 @@
 import {
   GET_PRODUCTS,
   GET_PRODUCT,
+  CLEAR_STATE,
   LOAD,
   ERROR,
 } from "../types/productsTypes";
@@ -52,6 +53,14 @@ export const get_product = (id:string) => async (dispatch: any) => {
     });
   }
 };
+
+export const clear_state_product = (id:string) => async (dispatch: any) => {
+  dispatch({
+    type: CLEAR_STATE,
+    payload: null,
+  });
+};
+
 
 
 
