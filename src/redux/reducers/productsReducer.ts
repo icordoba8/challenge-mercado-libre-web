@@ -49,7 +49,7 @@ const productsReducer = (state = INITIAL_STATE, action: any) => {
         categories: action.payload.categories,
         load: false,
         error: "",
-          };
+        };
       case CLEAR_STATE:
       return INITIAL_STATE
 

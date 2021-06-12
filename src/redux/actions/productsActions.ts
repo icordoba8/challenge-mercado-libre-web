@@ -46,7 +46,7 @@ export const get_product = (id:string) => async (dispatch: any) => {
     }
     
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     dispatch({
       type: ERROR,
       payload: "Error cargando productos.",

@@ -9,11 +9,20 @@ import * as productsActions from "../../../redux/actions/productsActions";
 
 const DetailItem = (props: any) => {
   const { id }: any = useParams();
-  const { product, get_product } = props;
+  const { product, get_product, error } = props;
   useEffect(() => {
     get_product(id);
   }, [get_product, id]);
 
+  if (error !== "") {
+    return (
+      <div className="no-search-result">
+        <div>
+          <h4>{error}</h4>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <div className="image-buy">

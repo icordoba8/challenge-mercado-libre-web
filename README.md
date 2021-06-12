@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Web donde se duscan articulos provenientes de la api de mercado libre
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto est desarrollado en React typescript donde se integra con Redux para el manejo del storage
 
 ## Available Scripts
 
-In the project directory, you can run:
+En el directorio del proyecto, puede ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Ejecuta la aplicación en el modo de desarrollo. \ Abra [http: // localhost: 3000http: // localhost: 3000) para verla en el navegador.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia pruebas render de los componetes
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Estructura de carpetas y componentes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+    idex=> inicio de la aplicación configuramos redux para manejar el storage
+    App=> Componente donde montamos el manejo de las rutas y el layout de la aplicación
+    componetes=> Carpeta contenedora d elos compenentes
+      Home=>Inicio de la aplicación
+      Layaout=> Manejador de las vistas de todods los componentes
+      Items=> Componete para pintar el resultado de la busqueda y el detalle del producto
+      BuyButton=> Componente Button que se muestra el el detalle del producto
+      BreadCrumb=> Componete para mostrar las categorias de los resusltados protuctos y detalle
+      Loader=> Componente que se muestra mientras se pinta el resultado
+    redux Carpeta contenedora de los typos,aciones y reducers del storage

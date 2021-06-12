@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import queryString from "query-string";
+import { connect } from "react-redux";
 import "./styles.sass";
 import ic_Search from "../../../assets/ic_Search.png";
-const SearchBox = () => {
+import * as searchActions from "../../../redux/actions/searchActions";
+const SearchBox = (props: any) => {
   const { search }: any = queryString.parse(useHistory().location.search);
-  const [state, setState] = useState(search ? search : "");
+  const history: any = useHistory();
+  const { get_search_box, search: search_storage } = props;
+  const [state, setState] = useState(search ? search : search_storage);
+
+  const handleSubmit = (e: any) => {
+    get_search_box(state);
+    history.push(`/items?search=${state}`);
+    e.preventDefault();
+  };
 
   return (
-    <form action={`/items?search= ${state}`} method="GET">
+    <form onSubmit={handleSubmit}>
       <div className="search-container">
         <input
           className="search-box"
@@ -26,5 +36,9 @@ const SearchBox = () => {
     </form>
   );
 };
-
-export default SearchBox;
+//Mapeamos los estados del reducer
+const mapStateToProps = (reducers: any) => {
+  return reducers.searchReducer;
+};
+//Conectamos el componenete para acceder a las props
+export default connect(mapStateToProps, searchActions)(SearchBox);
