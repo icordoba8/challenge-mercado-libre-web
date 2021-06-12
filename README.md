@@ -1,6 +1,6 @@
 # Web donde se buscan articulos provenientes de la api de mercado libre
 
-Este proyecto est desarrollado en React typescript donde se integra con Redux para el manejo del storage
+Este proyecto esta desarrollado en React typescript donde se integra con Redux para el manejo del storage
 
 ## Available Scripts
 
@@ -22,7 +22,7 @@ Construye la aplicación para producción en la carpeta `build`
 
     idex=> inicio de la aplicación configuramos redux para manejar el storage
     App=> Componente donde montamos el manejo de las rutas y el layout de la aplicación
-    componetes=> Carpeta contenedora d elos compenentes
+    componetes=> Carpeta contenedora de los compenentes
       Home=>Inicio de la aplicación
       Layaout=> Manejador de las vistas de todods los componentes
       Items=> Componete para pintar el resultado de la busqueda y el detalle del producto
