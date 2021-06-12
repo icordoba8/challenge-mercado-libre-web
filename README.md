@@ -1,4 +1,4 @@
-# Web donde se duscan articulos provenientes de la api de mercado libre
+# Web donde se buscan articulos provenientes de la api de mercado libre
 
 Este proyecto est desarrollado en React typescript donde se integra con Redux para el manejo del storage
 
