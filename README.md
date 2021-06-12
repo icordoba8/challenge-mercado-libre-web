@@ -6,6 +6,9 @@ Este proyecto esta desarrollado en React typescript donde se integra con Redux p
 
 En el directorio del proyecto, puede ejecutar:
 
+### `npm i`
+Instalar dependencias del proyecto:
+
 ### `npm start`
 
 Ejecuta la aplicación en el modo de desarrollo. \ Abra [http: // localhost: 3000http: // localhost: 3000) para verla en el navegador.
